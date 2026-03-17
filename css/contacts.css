@@ -1,0 +1,119 @@
+.contacts-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 490px;
+    position: relative;
+}
+
+.profile-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.profile-image {
+    width: 480px;
+    height: 480px;
+    object-fit: cover;
+    border-radius: 20%;
+    filter: blur(14px);
+}
+
+.profile-image-reveal {
+    position: absolute;
+    width: 480px;
+    height: 480px;
+    object-fit: cover;
+    border-radius: 20%;
+    filter: blur(3px);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.1s ease;
+}
+
+.contact-info {
+    position: absolute;
+    display: flex;
+    gap: 60px;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    top: 55%;
+    pointer-events: none;  /* ← GIÀ C'È, verifica */
+}
+
+.contact-info a {
+    color: #2200CC;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 0.07em;
+    transition: opacity 0.2s;
+    pointer-events: auto;  /* ← I link restano cliccabili */
+}
+
+.contact-info a:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+}
+
+.phone-number {
+    cursor: default !important;
+}
+
+.phone-number:hover {
+    text-decoration: none !important;
+}
+
+.bio-text {
+    position: absolute;
+    top: 57%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 10;
+    white-space: nowrap;
+    pointer-events: none; 
+}
+
+.bio-text sup {
+    color: #2200CC;
+    font-size: 8px;
+    letter-spacing: 0.03em;
+    vertical-align: baseline;
+    opacity: 0.8;
+}
+
+.bio-text sup.typing::after {
+    content: '|';
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Protezione immagini */
+img {
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+}
+
+/* Disabilita click destro su tutto il sito */
+body {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
